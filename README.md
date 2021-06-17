@@ -7,9 +7,9 @@ To add TSLog to your Xcode project, select File -> Swift Packages -> Add Package
 
 ## Usage
 
-`TSLog.sI.activeLevel = .debug`
-`...`
-`TSLog.sI.logCall()`
+`TSLog.sI.activeLevel = .debug`<br />
+`...`<br />
+`TSLog.sI.logCall()`<br />
 
 ## Api
 
