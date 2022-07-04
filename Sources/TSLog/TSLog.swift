@@ -24,7 +24,7 @@ open class TSLog {
     
     open func log(_ level: LogLevel, _ str: String, functionName: String = #function, fileName: String = #file) {
         let fileName = ((fileName as NSString).lastPathComponent as NSString).deletingPathExtension
-        if (level.rawValue == activeLevel.rawValue) {
+        if (level.rawValue <= activeLevel.rawValue) {
             let l = "\(level)"
             print("TSLog",l.uppercased(),functionName, str, separator: " ", terminator: "\n")
         }
