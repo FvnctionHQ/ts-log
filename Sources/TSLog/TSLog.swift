@@ -22,7 +22,7 @@ open class TSLog {
     public var onAfterLogged: TSLogOnAfterLoggedBlock?
     public var activeLevel: LogLevel = .error
     
-    open func log(_ level: LogLevel? = LogLevel.trace, _ str: String, functionName: String = #function, fileName: String = #file) {
+    open func log(_ str: String, _ level: LogLevel? = LogLevel.trace, functionName: String = #function, fileName: String = #file) {
         let fileName = ((fileName as NSString).lastPathComponent as NSString).deletingPathExtension
         if (level!.rawValue <= activeLevel.rawValue) {
             let l = "\(level!)"
