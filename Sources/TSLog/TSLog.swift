@@ -30,19 +30,20 @@ open class TSLog {
         }
         
         if let block = onAfterLogged {
-            block("TSLog: \(str) ", level!, "\(functionName) :: \(fileName)")
+            block("TSLog \(str) ", level!, "\(fileName) :: \(functionName)")
         }
       
     }
     
     open func logCall(functionName: String = #function, fileName: String = #file) {
-        if (activeLevel.rawValue <= LogLevel.warning.rawValue) {
+        if (activeLevel.rawValue <= LogLevel.trace.rawValue) {
             let fileName = ((fileName as NSString).lastPathComponent as NSString).deletingPathExtension
-            print("TSLog", functionName, fileName, separator: " :: ", terminator: "\n")
+            print("TSLog", fileName, functionName, separator: " :: ", terminator: "\n")
         }
         
         if let block = onAfterFunctionCallLogged {
-            block("TSLog :: \(functionName) :: \(fileName)")
+            let fileName = ((fileName as NSString).lastPathComponent as NSString).deletingPathExtension
+            block("\(fileName) :: \(functionName) ")
         }
       
     }
