@@ -36,7 +36,7 @@ open class TSLog {
     }
     
     open func logCall(functionName: String = #function, fileName: String = #file) {
-        if (activeLevel.rawValue <= LogLevel.trace.rawValue) {
+        if (activeLevel.rawValue == LogLevel.trace.rawValue) {
             let fileName = ((fileName as NSString).lastPathComponent as NSString).deletingPathExtension
             print("TSLog", fileName, functionName, separator: " :: ", terminator: "\n")
         }
